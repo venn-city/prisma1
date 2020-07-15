@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Generate opencrud schema Queries that return many entites should have the return value be required 1`] = `
+exports[`Generate opencrud schema Queries that return many entities should have the return value be required 1`] = `
 "type AggregateBroadcast {
   count: Int!
 }
@@ -221,10 +221,10 @@ type PageInfo {
 
 type Query {
   broadcast(where: BroadcastWhereUniqueInput!): Broadcast
-  broadcasts(where: BroadcastWhereInput, orderBy: BroadcastOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Broadcast]!
+  broadcasts(where: BroadcastWhereInput, orderBy: BroadcastOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Broadcast!]!
   broadcastsConnection(where: BroadcastWhereInput, orderBy: BroadcastOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BroadcastConnection!
   notification(where: NotificationWhereUniqueInput!): Notification
-  notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification]!
+  notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification!]!
   notificationsConnection(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NotificationConnection!
   node(id: ID!): Node
 }
