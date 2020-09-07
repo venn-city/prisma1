@@ -1,5 +1,5 @@
 {
-  "name": "prisma-datamodel",
+  "name": "@venncity/prisma-datamodel",
   "version": "1.23.0-alpha.1",
   "description": "Transform prisma datamodel SDL into graphql-js SDL",
   "main": "dist/index.js",

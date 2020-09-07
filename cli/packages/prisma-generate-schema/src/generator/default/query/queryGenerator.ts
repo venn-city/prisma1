@@ -58,7 +58,7 @@ export default class QueryGenerator extends RootGenerator {
 
     fields[camelCase(plural(model.name))] = {
       type: new GraphQLNonNull(
-        new GraphQLList(this.generators.model.generate(model, {})),
+        new GraphQLList(new GraphQLNonNull(this.generators.model.generate(model, {}))),
       ),
       args: this.generators.manyQueryArguments.generate(model, {}),
     }
