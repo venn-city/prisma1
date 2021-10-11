@@ -1906,12 +1906,12 @@ type PageInfo {
 }
 
 type Query {
-  lotsOfScalarses(where: LotsOfScalarsWhereInput, orderBy: LotsOfScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalars]!
-  lotsOfRequiredScalarses(where: LotsOfRequiredScalarsWhereInput, orderBy: LotsOfRequiredScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalars]!
-  lotsOfScalarListses(where: LotsOfScalarListsWhereInput, orderBy: LotsOfScalarListsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarLists]!
-  lotsOfScalarsWithIDs(where: LotsOfScalarsWithIDWhereInput, orderBy: LotsOfScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarsWithID]!
-  lotsOfRequiredScalarsWithIDs(where: LotsOfRequiredScalarsWithIDWhereInput, orderBy: LotsOfRequiredScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalarsWithID]!
-  lotsOfScalarListsWithIDs(where: LotsOfScalarListsWithIDWhereInput, orderBy: LotsOfScalarListsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarListsWithID]!
+  lotsOfScalarses(where: LotsOfScalarsWhereInput, orderBy: LotsOfScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalars!]!
+  lotsOfRequiredScalarses(where: LotsOfRequiredScalarsWhereInput, orderBy: LotsOfRequiredScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalars!]!
+  lotsOfScalarListses(where: LotsOfScalarListsWhereInput, orderBy: LotsOfScalarListsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarLists!]!
+  lotsOfScalarsWithIDs(where: LotsOfScalarsWithIDWhereInput, orderBy: LotsOfScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarsWithID!]!
+  lotsOfRequiredScalarsWithIDs(where: LotsOfRequiredScalarsWithIDWhereInput, orderBy: LotsOfRequiredScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalarsWithID!]!
+  lotsOfScalarListsWithIDs(where: LotsOfScalarListsWithIDWhereInput, orderBy: LotsOfScalarListsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarListsWithID!]!
   lotsOfScalars(where: LotsOfScalarsWhereUniqueInput!): LotsOfScalars
   lotsOfRequiredScalars(where: LotsOfRequiredScalarsWhereUniqueInput!): LotsOfRequiredScalars
   lotsOfScalarLists(where: LotsOfScalarListsWhereUniqueInput!): LotsOfScalarLists

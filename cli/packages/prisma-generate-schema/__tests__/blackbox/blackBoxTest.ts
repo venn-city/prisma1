@@ -52,10 +52,15 @@ export default function blackBoxTest(
 const testNames = fs.readdirSync(path.join(__dirname, 'cases'))
 
 for (const testName of testNames) {
+  // Skip running non scalar tests
+  if (!['scalars'].includes(testName)) {
+    continue;
+  }
   test(`Generates schema for ${testName}/relational correctly`, () => {
     blackBoxTest(testName, DatabaseType.postgres, 'relational_v1.1')
   })
-  test(`Generates schema for ${testName}/document correctly`, () => {
-    blackBoxTest(testName, DatabaseType.mongo, 'document')
-  })
+  // Skip running MongoDB tests
+  // test(`Generates schema for ${testName}/document correctly`, () => {
+  //   blackBoxTest(testName, DatabaseType.mongo, 'document')
+  // })
 }
