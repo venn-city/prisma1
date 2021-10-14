@@ -16,6 +16,14 @@ import {
 } from 'graphql/type'
 import { GraphQLInputType } from 'graphql'
 
+const SUPPORTED_ARRAY_FIELDS = [
+  TypeIdentifiers.string,
+  TypeIdentifiers.id,
+  TypeIdentifiers.uuid,
+  TypeIdentifiers.integer,
+  TypeIdentifiers.float,
+  TypeIdentifiers.dateTime,
+]
 export default class ModelWhereInputGenerator extends ModelInputObjectTypeGenerator {
   public static generateFiltersForSuffix(
     suffixes: string[],
@@ -45,7 +53,17 @@ export default class ModelWhereInputGenerator extends ModelInputObjectTypeGenera
     GQLAssert.isScalar(field, this.generators.scalarTypeGenerator)
 
     if (field.isList) {
-      return {} as GraphQLInputFieldConfigMap
+      if (
+        typeof field.type === 'string'
+        && SUPPORTED_ARRAY_FIELDS.some(x => x === field.type)
+      ) {
+        return FieldConfigUtils.merge(
+          this.generateElementInArrayFilters(field),
+          this.generateArraysComparisonFilters(field),
+        )
+      } else {
+        return {} as GraphQLInputFieldConfigMap
+      }
     }
 
     if (typeof field.type === 'string') {
@@ -134,6 +152,32 @@ export default class ModelWhereInputGenerator extends ModelInputObjectTypeGenera
       '_not_starts_with',
       '_ends_with',
       '_not_ends_with',
+    ]
+    return ModelWhereInputGenerator.generateFiltersForSuffix(
+      filters,
+      field,
+      type,
+    )
+  }
+
+  public generateElementInArrayFilters(field: IGQLField): GraphQLInputFieldConfigMap {
+    const type = this.generators.scalarTypeGenerator.generate(field.type, {})
+    const filters = [
+      '_contains',
+    ]
+    return ModelWhereInputGenerator.generateFiltersForSuffix(
+      filters,
+      field,
+      type,
+    )
+  }
+
+  public generateArraysComparisonFilters(field: IGQLField): GraphQLInputFieldConfigMap {
+    const unwrappedType = this.generators.scalarTypeGenerator.generate(field.type, {})
+    const type = this.generators.scalarTypeGenerator.wrapList(unwrappedType)
+    const filters = [
+      '_contains_some',
+      '_contains_every',
     ]
     return ModelWhereInputGenerator.generateFiltersForSuffix(
       filters,

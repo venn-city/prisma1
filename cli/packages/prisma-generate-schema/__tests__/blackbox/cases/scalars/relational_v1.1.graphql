@@ -1117,6 +1117,54 @@ input LotsOfScalarListsWhereInput {
   All values not ending with the given string.
   """
   id_not_ends_with: ID
+  """
+  All lists that contain the given int.
+  """
+  int_contains: Int
+  """
+  All lists that overlap with the given list of ints.
+  """
+  int_contains_some: [Int!]
+  """
+  All lists that contain the given list of ints.
+  """
+  int_contains_every: [Int!]
+  """
+  All lists that contain the given string.
+  """
+  string_contains: String
+  """
+  All lists that overlap with the given list of strings.
+  """
+  string_contains_some: [String!]
+  """
+  All lists that contain the given list of strings.
+  """
+  string_contains_every: [String!]
+  """
+  All lists that contain the given float.
+  """
+  float_contains: Float
+  """
+  All lists that overlap with the given list of floats.
+  """
+  float_contains_some: [Float!]
+  """
+  All lists that contain the given list of floats.
+  """
+  float_contains_every: [Float!]
+  """
+  All lists that contain the given dateTime.
+  """
+  dateTime_contains: DateTime
+  """
+  All lists that overlap with the given list of dateTimes.
+  """
+  dateTime_contains_some: [DateTime!]
+  """
+  All lists that contain the given list of dateTimes.
+  """
+  dateTime_contains_every: [DateTime!]
   createdAt: DateTime
   """
   All values that are not equal to given value.
@@ -1424,6 +1472,54 @@ input LotsOfScalarListsWithIDWhereInput {
   All values not ending with the given string.
   """
   id_not_ends_with: ID
+    """
+  All lists that contain the given int.
+  """
+  int_contains: Int
+  """
+  All lists that overlap with the given list of ints.
+  """
+  int_contains_some: [Int!]
+  """
+  All lists that contain the given list of ints.
+  """
+  int_contains_every: [Int!]
+  """
+  All lists that contain the given string.
+  """
+  string_contains: String
+  """
+  All lists that overlap with the given list of strings.
+  """
+  string_contains_some: [String!]
+  """
+  All lists that contain the given list of strings.
+  """
+  string_contains_every: [String!]
+  """
+  All lists that contain the given float.
+  """
+  float_contains: Float
+  """
+  All lists that overlap with the given list of floats.
+  """
+  float_contains_some: [Float!]
+  """
+  All lists that contain the given list of floats.
+  """
+  float_contains_every: [Float!]
+  """
+  All lists that contain the given dateTime.
+  """
+  dateTime_contains: DateTime
+  """
+  All lists that overlap with the given list of dateTimes.
+  """
+  dateTime_contains_some: [DateTime!]
+  """
+  All lists that contain the given list of dateTimes.
+  """
+  dateTime_contains_every: [DateTime!]
   createdAt: DateTime
   """
   All values that are not equal to given value.
@@ -2398,12 +2494,12 @@ type PageInfo {
 }
 
 type Query {
-  lotsOfScalarses(where: LotsOfScalarsWhereInput, orderBy: LotsOfScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalars]!
-  lotsOfRequiredScalarses(where: LotsOfRequiredScalarsWhereInput, orderBy: LotsOfRequiredScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalars]!
-  lotsOfScalarListses(where: LotsOfScalarListsWhereInput, orderBy: LotsOfScalarListsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarLists]!
-  lotsOfScalarsWithIDs(where: LotsOfScalarsWithIDWhereInput, orderBy: LotsOfScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarsWithID]!
-  lotsOfRequiredScalarsWithIDs(where: LotsOfRequiredScalarsWithIDWhereInput, orderBy: LotsOfRequiredScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalarsWithID]!
-  lotsOfScalarListsWithIDs(where: LotsOfScalarListsWithIDWhereInput, orderBy: LotsOfScalarListsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarListsWithID]!
+  lotsOfScalarses(where: LotsOfScalarsWhereInput, orderBy: LotsOfScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalars!]!
+  lotsOfRequiredScalarses(where: LotsOfRequiredScalarsWhereInput, orderBy: LotsOfRequiredScalarsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalars!]!
+  lotsOfScalarListses(where: LotsOfScalarListsWhereInput, orderBy: LotsOfScalarListsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarLists!]!
+  lotsOfScalarsWithIDs(where: LotsOfScalarsWithIDWhereInput, orderBy: LotsOfScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarsWithID!]!
+  lotsOfRequiredScalarsWithIDs(where: LotsOfRequiredScalarsWithIDWhereInput, orderBy: LotsOfRequiredScalarsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfRequiredScalarsWithID!]!
+  lotsOfScalarListsWithIDs(where: LotsOfScalarListsWithIDWhereInput, orderBy: LotsOfScalarListsWithIDOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [LotsOfScalarListsWithID!]!
   lotsOfScalars(where: LotsOfScalarsWhereUniqueInput!): LotsOfScalars
   lotsOfRequiredScalars(where: LotsOfRequiredScalarsWhereUniqueInput!): LotsOfRequiredScalars
   lotsOfScalarLists(where: LotsOfScalarListsWhereUniqueInput!): LotsOfScalarLists
